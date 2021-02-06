@@ -95,11 +95,25 @@ const totalNames = characters.reduce((acc, cur) => acc + cur.name.length, 0);
 console.log(totalNames);
 
 
-//***FILTER***
+//***FILTER*** Take array of items and pick out what you want based on the filter
 //1. Get characters with mass greater than 100
+// filter take a cb function (arrow function)
+// return each individual item
+const greatMass = characters.filter(character => character.mass > 100)
+console.log(greatMass);
+
 //2. Get characters with height less than 200
+// for each char, implicit return and if height is less than 200
+const shortHeight = characters.filter(character => character.height < 200);
+console.log(shortHeight);
+
 //3. Get all male characters
+const maleCharacters = characters.filter(character => character.gender === "male");
+console.log(maleCharacters);
+
 //4. Get all female characters
+const femaleCharacters = characters.filter(character => characters.gender === "female");
+console.log(femaleCharacters);
 
 //***SORT***
 //1. Sort by mass
