@@ -29,13 +29,26 @@ const characters = [
     },
 ];
 
-//***MAP***
-//1. Get array of all names
+//***MAP*** Iterate through each item in the array and will allow us to transform the items in the array.
+//1. Get array of all names - take a cb function and define the parameter and transform the individual item to the new item in the resulting array
+// do in implicit return - one line
+const names = characters.map(character => character.name)
+console.log(names);
+
 //2. Get array of all heights
+const heights = characters.map((character) => character.height);
+console.log(heights);
+
 //3. Get array of objects with just name and height properties
-//4. Get array of all first names
-
-
+const newArray = characters.map((character) => ({
+    // return the object with name and height property
+    name: character.name, 
+    height: character.height,
+}));
+console.log(newArray);
+//4. Get array of all first names - 0th index
+const firstNames = characters.map(character => character.name.split(" ")[0]);
+console.log(firstNames);
 
 //***REDUCE*** - Iterate through each item in the array and get some ending result. 0 starting, then adding on to each character.
 // First parameter is a cb function, second is the initial accumulator(value to build up or accumulate on).
