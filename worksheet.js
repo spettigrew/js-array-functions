@@ -35,11 +35,52 @@ const characters = [
 //3. Get array of objects with just name and height properties
 //4. Get array of all first names
 
-//***REDUCE***
+
+
+//***REDUCE*** - Iterate through each item in the array and get some ending result. 0 starting, then adding on to each character.
+// First parameter is a cb function, second is the initial accumulator(value to build up or accumulate on).
+
 //1. Get total mass of all characters
+const totalMass = characters.reduce((accumulator, current) => {
+    // take acc and add on the current mass
+    return accumulator + current.mass;
+}, 0)
+console.log(totalMass)
+
 //2. Get total height of all characters
+// Short-hand version of arrow function with a one-line return
+const totalHeight = characters.reduce((acc, cur) => acc + cur.height, 0)
+console.log(totalHeight);
+
 //3. Get total number of characters by eye color
+// const charEyeColor = characters.reduce((acc, cur) => {
+    // full function with an empty object. If acc already has a key of the current eye color
+//     if(acc[cur.eye_color]) {
+    // if the we have seen this eye color before, take acc object with the current key and set it the existing value then add 1
+//         acc[cur.eye_color] = acc[cur.eye_color] + 1
+//          otherwise, set acc at value of eye color to 1
+//     } else {
+//         acc[cur.eye_color] = 1
+//     }
+// }, {})
+
+// OR
+const charEyeColor = characters.reduce((acc, cur) => { 
+    const color = cur.eye_color;
+    if (acc[color]) {
+        acc[color]++
+    } else {
+        acc[color] = 1;
+    }
+    return acc;
+}, {});
+console.log(charEyeColor)
+
 //4. Get total number of characters in all the character names
+// add the length to the acc, with 0 as the initial value
+const totalNames = characters.reduce((acc, cur) => acc + cur.name.length, 0);
+console.log(totalNames);
+
 
 //***FILTER***
 //1. Get characters with mass greater than 100
