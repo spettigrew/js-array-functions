@@ -115,11 +115,38 @@ console.log(maleCharacters);
 const femaleCharacters = characters.filter(character => characters.gender === "female");
 console.log(femaleCharacters);
 
-//***SORT***
+//***SORT*** - iterate through each item in the array and sort it.
 //1. Sort by mass
+// cb function with two parameters (a, b) compare function. If result is positive, return b is sorted before a. If result is negative a is sorted before b.
+const byMass = characters.sort((a, b) => {
+    return a.mass - b.mass; // returns an ascending order
+})
+console.log(byMass);
+
 //2. Sort by height
+const byHeight = characters.sort((a, b) => {
+    return a.height - b.height
+})
+console.log(byHeight);
+// OR
+// const byHeight = characters.sort((a, b) => a.height - b.height) - one line shorthand
+
 //3. Sort by name
+const byName = characters.sort((a, b) => {
+    // compare a and b. Can't add/subtract strings.
+    if (a.name < b.name) return 1;
+    return -1
+})
+console.log(byName);
+
 //4. Sort by gender
+const byGender = characters.sort((a, b) => {
+    //  logs list with female first.
+    if (a.gender === 'female') return -1;
+    return 1
+})
+console.log(byGender);
+
 
 //***EVERY***
 //1. Does every character have blue eyes?
