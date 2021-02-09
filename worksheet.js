@@ -29,6 +29,7 @@ const characters = [
     },
 ];
 
+
 //***MAP*** Iterate through each item in the array and will allow us to transform the items in the array.
 //1. Get array of all names - take a cb function and define the parameter and transform the individual item to the new item in the resulting array
 // do in implicit return - one line
@@ -49,6 +50,7 @@ console.log(newArray);
 //4. Get array of all first names - 0th index
 const firstNames = characters.map(character => character.name.split(" ")[0]);
 console.log(firstNames);
+
 
 //***REDUCE*** - Iterate through each item in the array and get some ending result. 0 starting, then adding on to each character.
 // First parameter is a cb function, second is the initial accumulator(value to build up or accumulate on).
@@ -115,6 +117,7 @@ console.log(maleCharacters);
 const femaleCharacters = characters.filter(character => characters.gender === "female");
 console.log(femaleCharacters);
 
+
 //***SORT*** - iterate through each item in the array and sort it.
 //1. Sort by mass
 // cb function with two parameters (a, b) compare function. If result is positive, return b is sorted before a. If result is negative a is sorted before b.
@@ -169,9 +172,23 @@ console.log(short);
 const male = characters.every((character) => character.gender === "male")
 console.log(male);
 
-//***SOME***
 
+//***SOME*** Determines if 1 item in the array meets one or some condition.
 //1. Is there at least one male character?
+const oneMale = characters.some((character) => character.gender === "male")
+console.log(oneMale);
+
 //2. Is there at least one character with blue eyes?
+// condition of blue eye color from character parameter
+const oneBlue = characters.some((character) => character.eye_color === "blue")
+console.log(oneBlue);
+
 //3. Is there at least one character taller than 210?
+// false. No character with a mass greater than 210 (condition)
+const tallCharacter = characters.some((character) => character.height > 210)
+console.log(tallCharacter);
+
 //4. Is there at least one character that has mass less than 50?
+// condition of less than 50 = true
+const smallCharacter = characters.some((character) => characters.mass < 50);
+console.log(smallCharacter);
