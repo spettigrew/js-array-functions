@@ -148,13 +148,29 @@ const byGender = characters.sort((a, b) => {
 console.log(byGender);
 
 
-//***EVERY***
+
+//***EVERY***  - give it a condition and it will check if every item in that array meets that condition. JS will find that condition
 //1. Does every character have blue eyes?
+const allBlueEyes = characters.every((character) => characters.eye_color === "blue")
+// false because not ALL characters have blue eyes
+console.log(allBlueEyes);
+
 //2. Does every character have mass more than 40?
+const massGreater40 = characters.every((character) => characters.mass > 40);
+console.log(massGreater40);
+
 //3. Is every character shorter than 200?
+// character is the parameter and the condition is if the height is less than 200
+const short = characters.every((character) => character.height < 200);
+console.log(short);
+
 //4. Is every character male?
+// === compares the string. Hard equal
+const male = characters.every((character) => character.gender === "male")
+console.log(male);
 
 //***SOME***
+
 //1. Is there at least one male character?
 //2. Is there at least one character with blue eyes?
 //3. Is there at least one character taller than 210?
